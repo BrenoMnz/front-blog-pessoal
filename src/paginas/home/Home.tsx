@@ -1,49 +1,50 @@
 import './Home.css'
-import { useState, useEffect } from 'react';
 
-//Props, tem que colocar no menu tbm
-/*interface meusProps {
-  title: string;
-  description: string;
-}*/
-
-const Home = () => {
-
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  //useEffect
-  /*const [completed, setCompleted] = useState(false);
-  const [tarefa, setTarefa] = useState('');
-
-  useEffect(() => {
-    if (completed) {
-      setTarefa('Parabéns! Você concluiu a tarefa!');
-    }
-  }, [completed])*/
-
+function Home() {
   return (
-    //Props
-    /*<>
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
-    </>*/
-    
-    //useEffect
-    /*<div>
-      <h1>Tarefa</h1>
-      <h3>{tarefa}</h3>
-      <p>Conclua a tarefa</p>
-      <button onClick={() => setCompleted(true)}>Concluir tarefa</button>
-    </div>*/
-    
-    <div>
-      {loggedIn ? (
-        <h1>Bem vindo de volta!</h1>
-      ):(
-        <button onClick={() => setLoggedIn(true)}>Entrar</button>
-      )
-      }
-    </div>
+    <>
+      <div>
+        <h3 className='text-x1'>justify-content alinhamento horizontal</h3>
+        <h5>justify-start Esquerda</h5>
+        <div className="flex flex-row justify-start m-3">
+          <div className="basis-1/4 bg-red-500">01</div>
+          <div className="basis-1/4 bg-gray-400">01</div>
+        </div>
+        <h5>justify-end Direita</h5>
+        <div className="flex flex-row justify-end m-3">
+          <div className="basis-1/4 bg-red-500">01</div>
+          <div className="basis-1/4 bg-gray-400">01</div>
+        </div>
+        <h5>justify-center Centro</h5>
+        <div className="flex flex-row justify-center m-3">
+          <div className="basis-1/4 bg-red-500">01</div>
+          <div className="basis-1/4 bg-gray-400">01</div>
+        </div>
+        <h5>justify-around extremidades</h5>
+        <div className="flex flex-row justify-between m-3">
+          <div className="basis-1/4 bg-red-500">01</div>
+          <div className="basis-1/4 bg-gray-400">01</div>
+        </div>
+        <h5>justify-around extremidades com espaçamento</h5>
+        <div className="flex flex-row justify-around m-3">
+          <div className="basis-1/4 bg-red-500">01</div>
+          <div className="basis-1/4 bg-gray-400">01</div>
+        </div>
+      </div>
+
+      <div className="mt-12">
+        <h3 className="text-x1">justify-content alinhamento vertical</h3>
+        <div className="w-auto h-60 bg-gray-400 flex justify-center items-start m-3">
+          <div className="basis-1/4 bg-red-500">justify-center items-start alinhamento horizontal centro/vertical topo</div>
+        </div>
+        <div className="w-auto h-60 bg-gray-400 flex justify-center items-center m-3">
+          <div className="basis-1/4 bg-red-500">justify-center items-start alinhamento horizontal centro/vertical centro</div>
+        </div>
+        <div className="w-auto h-60 bg-gray-400 flex justify-center items-end m-3">
+          <div className="basis-1/4 bg-red-500">justify-center items-start alinhamento horizontal centro/vertical base</div>
+        </div>
+      </div>
+    </>
   )
 }
 
