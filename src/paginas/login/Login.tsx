@@ -1,11 +1,9 @@
-import "./Login.css";
-
-import {Link, useNavigate} from "react-router-dom";
-
-import {AuthContext} from "../../contexts/AuthContext";
-import UsuarioLogin from "../../models/UsuarioLogin";
 import {RotatingLines} from "react-loader-spinner";
 import { ChangeEvent, useContext, useEffect, useState } from "react";
+import {Link, useNavigate} from "react-router-dom";
+import {AuthContext} from "../../contexts/AuthContext";
+import UsuarioLogin from "../../models/UsuarioLogin";
+import "./Login.css";
 
 function Login() {
 
@@ -55,7 +53,7 @@ function Login() {
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="senha">Senha</label>
-            <input type="text"
+            <input type="password"
                    id="senha"
                    name="senha"
                    placeholder="Senha"
