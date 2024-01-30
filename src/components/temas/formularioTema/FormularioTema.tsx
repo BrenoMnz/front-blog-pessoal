@@ -2,6 +2,7 @@ import {ChangeEvent, useContext, useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {AuthContext} from '../../../contexts/AuthContext';
 import {atualizar, buscar, cadastrar} from '../../../services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 import Tema from '../../../models/Tema';
 
 function FormularioTema() {
@@ -49,14 +50,14 @@ function FormularioTema() {
                     }
                 })
 
-                alert('Tema atualizado com sucesso')
+                toastAlerta('Tema atualizado com sucesso', 'sucesso')
                 retornar()
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', 'info')
                     handleLogout()
                 } else {
-                    alert('Erro ao autalizar o Tema')
+                    toastAlerta('Erro ao autalizar o Tema', 'erro')
                 }
             }
         } else {
@@ -67,13 +68,13 @@ function FormularioTema() {
                     }
                 })
 
-                alert('Tema cadastrado com sucesso')
+                toastAlerta('Tema cadastrado com sucesso', 'sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', 'info')
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar o Tema')
+                    toastAlerta('Erro ao cadastrar o Tema', 'erro')
                 }
             }
         }
@@ -87,7 +88,7 @@ function FormularioTema() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', 'info');
             navigate('/login');
         }
     }, [token]);

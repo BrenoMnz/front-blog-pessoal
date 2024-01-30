@@ -3,6 +3,7 @@ import {Dna} from 'react-loader-spinner';
 import {useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../contexts/AuthContext';
 import {buscar} from '../../../services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 import Postagem from '../../../models/Postagem';
 import CardPostagem from '../cardPostagem/CardPostagem';
 
@@ -17,7 +18,7 @@ function ListaPostagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', 'info');
             navigate('/')
         }
     }, [token])
@@ -31,7 +32,7 @@ function ListaPostagem() {
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', 'info')
                 handleLogout()
             }
         }
